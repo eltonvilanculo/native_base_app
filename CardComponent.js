@@ -14,6 +14,7 @@ import { NativeBaseProvider, Box ,VStack,  AspectRatio,
   Heading, } from 'native-base';
   import { Ionicons, MaterialIcons } from '@expo/vector-icons';
   import { FontAwesome5 } from '@expo/vector-icons';
+  import FitImage from 'react-native-fit-image';
 export default function CardComponent({imageUrl,title}){
 
 
@@ -22,16 +23,24 @@ export default function CardComponent({imageUrl,title}){
       <Box
       rounded="lg"
       overflow="hidden"
-      width="95%"
+      width="100%"
       shadow={1}
+      height={280}
       _light={{ backgroundColor: 'gray.50' }}
       _dark={{ backgroundColor: 'gray.700' }}
     >
       <Box style={styles.card}>
         <AspectRatio ratio={16 / 9}>
-          <Image
+          <FitImage
+            indicator={false} // disable loading indicator
+            indicatorColor="white" // react native colors or color codes like #919191
+            indicatorSize="small" // (small | large) or integer ,
+            originalWidth={400}
+  originalHeight={300}
+          style={styles.imgConf}
             source={imageUrl}
             alt="image"
+         
           />
         </AspectRatio>
         <Center
@@ -87,7 +96,15 @@ const styles = StyleSheet.create({
     card:{
       flex:1,
       width:'100%',
-      marginTop:52
+     
+      resizeMode:'contain'
+    },
+    imgConf:{
+      alignSelf: 'center',
+      height: 100,
+      width: '100%',
+      borderWidth: 1,
+      borderRadius: 75
     }
   
   });

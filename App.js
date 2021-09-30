@@ -67,7 +67,7 @@ export default function App() {
       </VStack>
     </VStack>
 
-   <CardComponent imageUrl={require('./assets/favicon.png')} title="Dinaldo" />
+   <CardComponent imageUrl={require('./assets/Toyota-Ractis.jpg')} title="Dinaldo" />
  
 
     </Center>
